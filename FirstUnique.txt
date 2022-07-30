@@ -1,0 +1,27 @@
+
+#include <unordered_set>
+
+int solution(vector<int> &A) {
+    std::unordered_set<int> notUnique;
+    std::unordered_set<int> unique;
+    for(int i = 0; i < A.size(); i++) {
+        if(unique.find(A[i]) != unique.end()) {
+            unique.erase(A[i]);
+            notUnique.insert(A[i]);
+        } else {
+            if(notUnique.find(A[i]) == notUnique.end())
+                unique.insert(A[i]);
+        }
+    }
+
+    if(unique.size() == 0) {
+        return -1;
+    } else {
+        for(int i = 0; i < A.size(); i++) {
+            if(unique.find(A[i]) != unique.end()) {
+                return A[i];
+            }
+        }
+    }
+
+}

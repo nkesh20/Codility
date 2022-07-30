@@ -1,0 +1,35 @@
+#include <stack>
+
+
+bool isLeft(char ch) {
+    return ch == '(' || ch == '{' || ch == '[';
+}
+
+
+bool isRight(char ch) {
+    return ch == ')' || ch == '}' || ch == ']';
+}
+
+bool isMatching(char left, char right) {
+    return 
+        (left == '(' && right == ')') ||
+        (left == '{' && right == '}') ||
+        (left == '[' && right == ']');
+}
+
+int solution(string &S) {
+    stack<char> st;
+    for(int i = 0; i < S.length(); i++) {
+        if(isLeft(S[i])) {
+            st.push(S[i]);
+        } else {
+            if(st.empty() || !isMatching(st.top(), S[i])) {
+                return false;
+            } else {
+                st.pop();
+            }
+        }
+    }
+
+    return st.empty();
+}

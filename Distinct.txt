@@ -1,0 +1,14 @@
+#include <unordered_set>
+
+
+int solution(vector<int> &A) {
+    std::unordered_set<int> set;
+    int count = 0;
+    for(int i = 0; i < A.size(); i++) {
+        if(set.find(A[i]) == set.end()) {
+            count++;
+            set.insert(A[i]);
+        }
+    }
+    return count;
+}

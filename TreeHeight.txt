@@ -1,0 +1,36 @@
+// you can use includes, for example:
+// #include <algorithm>
+
+// you can write to stdout for debugging purposes, e.g.
+// cout << "this is a debug message" << endl;
+
+int calculateHeight(tree* T) {
+    if(!T) {
+        return 0;
+    }
+   if(T->l == NULL && T->r == NULL) {
+       return 0;
+   }
+
+   int leftHeight = 1 + calculateHeight(T->l);
+   int rightHeight = 1 + calculateHeight(T->r);
+
+
+    return max(leftHeight, rightHeight);
+
+}
+
+
+
+
+int solution(tree * T) {
+    if(!T) {
+        return -1;
+    }
+
+    else if(T->l == NULL && T->r == NULL) {
+       return 0;
+    }
+   
+   return calculateHeight(T); 
+}

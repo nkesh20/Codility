@@ -1,0 +1,21 @@
+// you can use includes, for example:
+// #include <algorithm>
+
+// you can write to stdout for debugging purposes, e.g.
+// cout << "this is a debug message" << endl;
+
+int solution(vector<int> &A) {
+    if(A.size() == 1) {
+        return 1;
+    }
+
+    int next = 0;
+    int length = 0;
+    while(next != -1) {
+        next = A[next];
+        length++;
+    }
+
+    return length;
+
+}

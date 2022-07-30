@@ -1,0 +1,22 @@
+// you can use includes, for example:
+// #include <algorithm>
+
+// you can write to stdout for debugging purposes, e.g.
+// cout << "this is a debug message" << endl;
+
+int solution(vector<int> &A) {
+    int numInversions = 0;
+    for(int i = 0; i < A.size(); i++) {
+        for(int j = i; j < A.size(); j++) {
+            if(A[j] < A[i]) {
+                numInversions++;
+            }
+        }
+    }
+    
+    if(numInversions > 1000000000) {
+        return -1;
+    }
+
+    return numInversions;
+}

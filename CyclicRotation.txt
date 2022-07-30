@@ -1,0 +1,26 @@
+
+vector<int> solution(vector<int> &A, int K) {
+    if(A.size() == 1) {
+        return A;
+    }    
+
+    vector<int> ret(A.size());
+    
+
+    for(int i = 0; i < A.size(); i++) {
+        int index = i + K;
+        if(index > A.size() - 1) {
+            index = -1 + index - A.size() + 1;
+            while(index > A.size() - 1) {
+                index = -1 + index - A.size() + 1;
+            }
+
+            ret[index] = A[i];
+
+        } else {
+            ret[index] = A[i];
+        }
+    }
+
+    return ret;
+}
